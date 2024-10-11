@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <!-- Place favicon.ico in the root directory -->
+ Place favicon.ico in the root directory 
 
   <style>
     body {
@@ -22,9 +22,9 @@
     }
   </style>
 
-  <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
+   Code à dé-commenter si besoin de fichier CSS ou JS -->
   <!--<link rel="stylesheet" href="style.css">-->
-  <!--<script src="js/main.js"></script>-->
+  <!--<script src="js/main.js"></script>
 </head>
 
 <body>
@@ -32,9 +32,161 @@
     <a href="..">🏠 Index</a> / TP2
   </nav>
   <h1>tp2</h1>
-  <!-- Add your site or application content here -->
+  Add your site or application content here 
   <p>Hello world! This is HTML5 Boilerplate.</p>
   <img src="../galilee.png" alt="Logo Galilee" />
 </body>
 
+</html> -->
+
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF_8" />
+  <title>formulaire Inscription</title>
+  <style type="text/css">
+    td {
+      height: 40px;
+    }
+
+    .valid {
+            color: green;
+            font-weight: bold;
+        }
+
+        .valid::after {
+            content: " ✔";
+        }
+        form:invalid input[type="submit"] {
+  background-color: gray;
+}
+label {
+  width: 150px;
+  display: inline-block;
+}
+input {
+  width: 250px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 1rem;
+  box-sizing: border-box; /* pour s'assurer que les margin/padding n'impacte pas la largeur width */
+  padding: 6px 12px;
+}
+form { 
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+}
+.btn-primary {
+  border-radius: 5px;
+  padding: 6px 12px;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+form:invalid input[type="submit"] {
+  background-color: gray;
+}
+
+  </style>
+</head>
+
+<body>
+  <form action="action.html" method="get">
+    <fieldset>
+      <legend>fomulaire d'inscription</legend>
+      <table>
+        <p>
+          <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required minlength="2" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
+            title="Le nom doit contenir au moins 2 caractères et uniquement des lettres." oninput="validateInput(this)"  placeholder="saisir votre Nom">
+        <span id="valid-nom"></span>
+    </p>
+        <tr>
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="prenom" required minlength="2" title="Le prénom doit contenir au moins 2 caractères et uniquement des lettres."
+              oninput="validateInput(this)"  placeholder="saisir votre prenom">
+          <span id="valid-prenom"></span><br><br>
+        </tr>
+        <tr>
+          <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required title="L'email doit se terminer par '@gmail.com'."
+        placeholder="saisir votre Email" oninput="validateInput(this)">
+        <span id="valid-email"></span><br><br>
+
+          <!--<td><label>Email</label></td>
+          <td><input type="email" name="Email" placeholder="saisir votre Email" /></td>-->
+        </tr>
+        <tr>
+        <label for="date_naissance">Date de naissance:</label>
+        <input type="date" id="date_naissance" name="date_naissance" required oninput="validateInput(this)">
+        <span id="valid-date_naissance"></span><br><br>
+      </tr>
+        <tr>
+          <td> Sexe </td>
+        
+          <td>
+            Masculin <input type="radio" name="sexe" value="M">
+            Féminin <input type="radio" name="sexe" value="F" checked="checked">
+          
+          </td>
+        </tr>
+        <tr>
+          
+          <td><label>Photo</label></td>
+          <td><input type="file" name="photo accept=" image/jpeg,image/png"></td>
+        </tr>
+        <tr>
+          <td><label>Pays</label></td>
+          <td>
+            <select>
+              <option>France</option>
+              <option>Espagne</option>
+              <option>Italie</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          
+          <td>Les langages préferés </td>
+          <td><select multiple="multiple">
+              <option>Java</option>
+              <option>C</option>
+              <option>C++</option>
+              <option>PHP</option>
+              <option>HTML</option>
+            </select> (Pour faire plusieurs choix maintenir la touche CTRL enfoncée)</td>
+        </tr>
+
+        <tr>
+          <td><label>Domaines d'actvités</label></td>
+          <td><input type="checkbox"> Informatique <input type="checkbox"> Gestion <input type="checkbox"> Pédagogie
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Envoyer" /> <input type="reset" value="Annuler" /></td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+  <script>
+    function validateInput(input) {
+
+        const span = document.getElementById('valid-' + input.id);
+
+
+        if (input.checkValidity()) {
+            span.classList.add('valid');
+        } else {
+            span.classList.remove('valid');
+        }
+    }
+</script>
+</body>
+
 </html>
+
+<input type="submit" value="Envoyer " />
+<input type="reset" value="Annuler" />
