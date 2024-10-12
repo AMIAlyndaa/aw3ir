@@ -1,41 +1,103 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="action.js"></script>
-  <title>TP2</title>
- 
-  
+  <meta charset="UTF-8" />
+  <title>Résultat du formulaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+    }
 
-  <body>
-    <a href="index.html" class="btn-primary">⬅️ Retour au formulaire</a>
-  
-    <h1>TP #2 - résultat du formulaire</h1>
-    <form  method="get"></form>
-    <div>
-      <p>Bonjour <span id="name"></span> <span id="firstname"></span>,</p>
-      <p>
-        Vous êtes né le <span  id="Date"></span>
-        et habité(e)<span  id="Adresse"></span>
-        <a href="" id="address" target="_blank"></a>.
-      </p>
-      <p>
-        Mail :
-        <a href="" id="email"></a>
-      </p>
-    </div>
-     </form>
-  </body>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
 
- 
-  
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0d6efd;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0a58ca;
+    }
+  </style>
 </head>
 
 <body>
-  
+  <h1>Résultats du formulaire</h1>
+  <table>
+    <tr>
+      <th>Nom</th>
+      <td id="nom"></td>
+    </tr>
+    <tr>
+      <th>Prénom</th>
+      <td id="prenom"></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td id="email"></td>
+    </tr>
+    <tr>
+      <th>Date de Naissance</th>
+      <td id="date_naissance"></td>
+    </tr>
+    <tr>
+      <th>Sexe</th>
+      <td id="sexe"></td>
+    </tr>
+    <tr>
+      <th>Pays</th>
+      <td id="pays"></td>
+    </tr>
+  </table>
+
+  <!-- Bouton de retour au formulaire -->
+  <a href="index.html" class="btn">Retour au formulaire</a>
+
+  <script>
+    // Fonction pour extraire les paramètres de l'URL
+    function getUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        nom: params.get('nom'),
+        prenom: params.get('prenom'),
+        email: params.get('email'),
+        date_naissance: params.get('date_naissance'),
+        sexe: params.get('sexe'),
+        pays: params.get('pays')
+      };
+    }
+
+    // Remplir les champs avec les valeurs des paramètres de l'URL
+    const formData = getUrlParams();
+    document.getElementById('nom').textContent = formData.nom;
+    document.getElementById('prenom').textContent = formData.prenom;
+    document.getElementById('email').textContent = formData.email;
+    document.getElementById('date_naissance').textContent = formData.date_naissance;
+    document.getElementById('sexe').textContent = formData.sexe;
+    document.getElementById('pays').textContent = formData.pays;
+  </script>
 </body>
 
 </html>
