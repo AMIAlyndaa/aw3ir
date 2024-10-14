@@ -72,11 +72,11 @@
     </tr>
   </table>
 
-  <!-- Bouton de retour au formulaire -->
+ 
   <a href="index.html" class="btn">Retour au formulaire</a>
 
   <script>
-    // Fonction pour extraire les paramètres de l'URL
+   
     function getUrlParams() {
       const params = new URLSearchParams(window.location.search);
       return {
@@ -89,7 +89,7 @@
       };
     }
 
-    // Remplir les champs avec les valeurs des paramètres de l'URL
+    
     const formData = getUrlParams();
     document.getElementById('nom').textContent = formData.nom;
     document.getElementById('prenom').textContent = formData.prenom;
